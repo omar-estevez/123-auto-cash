@@ -1,0 +1,244 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0.8) 80%),
+    url('../assets/images/bg-sec1.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero__bg-pattern {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(245, 197, 24, 0.07) 0%, transparent 70%),
+    repeating-linear-gradient(-45deg,
+      transparent,
+      transparent 40px,
+      rgba(255, 255, 255, 0.012) 40px,
+      rgba(255, 255, 255, 0.012) 41px);
+  pointer-events: none;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.hero__content {
+  margin-right: 80px;
+}
+
+/* Badge */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 197, 24, 0.12);
+  border: 1px solid rgba(245, 197, 24, 0.3);
+  color: var(--yellow);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.hero__badge-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+/* Title */
+.hero__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.hero__title-white {
+  color: var(--white);
+}
+
+.hero__title-yellow {
+  color: var(--yellow);
+}
+
+/* Subtitle */
+.hero__subtitle {
+  font-size: 16px;
+  color: var(--gray-light);
+  max-width: 400px;
+  margin-bottom: 36px;
+  line-height: 1.6;
+}
+
+/* Actions */
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.hero__cta {
+  font-size: 14px;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+}
+
+.hero__cta-arrow {
+  font-size: 18px;
+  transition: transform var(--transition);
+}
+
+.hero__cta:hover .hero__cta-arrow {
+  transform: translateX(4px);
+}
+
+.hero__trust {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero__avatars {
+  display: flex;
+}
+
+.hero__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  margin-left: -8px;
+}
+
+.hero__avatars .hero__avatar:first-child {
+  margin-left: 0;
+}
+
+.hero__trust-text {
+  font-size: 12px;
+  color: var(--gray-light);
+  font-weight: 500;
+}
+
+/* Car Card */
+.hero__card {
+  /* background: var(--dark-card); */
+  /* border: 1px solid var(--border); */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: absolute;
+  left: 45%;
+  top: 35%;
+  transform: translateY(-50%);
+  /* box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6); */
+}
+
+.hero__car-img {
+  /* background: linear-gradient(135deg, #1a1a1a 0%, #0f1a0f 50%, #1a1200 100%); */
+  /* padding: 30px 20px 10px; */
+  width: auto;
+  max-width: none;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__car-img-2 {
+  width: clamp(326px, 90vw, 900px);
+}
+
+.hero__offer {
+  background: var(--dark-2);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+}
+
+.hero__offer-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hero__offer-dot {
+  width: 8px;
+  height: 8px;
+  background: #2ecc71;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.hero__offer-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 0.04em;
+  color: var(--yellow);
+}
+
+/* Responsive */
+@media (max-width: 912px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero__badge {
+    margin: 0 auto 20px;
+  }
+
+  .hero__subtitle {
+    margin: 0 auto 32px;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__card {
+    margin: 0 auto;
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .hero__content {
+    z-index: 1;
+    margin: 50px 0 0 0;
+  }
+
+}

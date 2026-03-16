@@ -1,0 +1,140 @@
+.quote {
+  background: var(--dark);
+}
+
+.quote__card {
+  background: var(--dark-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.quote__header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.quote__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.quote__subtitle {
+  font-size: 14px;
+  color: var(--gray);
+  letter-spacing: 0.04em;
+}
+
+.quote__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quote__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.quote__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.quote__field--full {
+  width: 100%;
+}
+
+.quote__label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+
+.quote__input {
+  background: var(--dark-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 14px;
+  color: var(--white);
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.quote__input::placeholder {
+  color: var(--gray);
+}
+
+.quote__input:focus {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(245,197,24,0.12);
+}
+
+.quote__select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.quote__select option {
+  background: var(--dark-3);
+  color: var(--white);
+}
+
+.quote__submit {
+  background: var(--yellow);
+  color: var(--black);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 18px;
+  border-radius: var(--radius);
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+  margin-top: 8px;
+}
+
+.quote__submit:hover {
+  background: var(--yellow-light);
+  transform: translateY(-2px);
+}
+
+.quote__submit:active {
+  transform: translateY(0);
+}
+
+.quote__submit--success {
+  background: #2ecc71;
+  color: white;
+  cursor: default;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .quote__card {
+    padding: 28px 20px;
+  }
+  .quote__grid {
+    grid-template-columns: 1fr;
+  }
+}

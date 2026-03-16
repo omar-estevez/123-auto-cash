@@ -1,0 +1,100 @@
+.reviews {
+  background: var(--black);
+}
+
+.reviews__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(30px, 5vw, 48px);
+  letter-spacing: 0.08em;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.reviews__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.reviews__card {
+  background: var(--dark-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.reviews__card:hover {
+  border-color: rgba(245,197,24,0.25);
+  transform: translateY(-4px);
+}
+
+.reviews__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.reviews__stars span {
+  color: var(--yellow);
+  font-size: 18px;
+}
+
+.reviews__text {
+  font-size: 14px;
+  color: var(--gray-light);
+  line-height: 1.7;
+  flex: 1;
+  font-style: italic;
+}
+
+.reviews__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.reviews__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.reviews__name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.reviews__role {
+  font-size: 12px;
+  color: var(--gray);
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .reviews__grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .reviews__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
