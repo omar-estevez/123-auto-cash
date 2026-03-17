@@ -10,7 +10,7 @@
 
 .navbar--scrolled {
   background: rgba(10, 10, 10, 0.97);
-  box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
 .navbar__inner {
@@ -26,7 +26,11 @@
   gap: 10px;
   flex-shrink: 0;
 }
-.navbar__logo-icon { font-size: 24px; }
+
+.navbar__logo-icon {
+  font-size: 24px;
+}
+
 .navbar__logo-main {
   display: block;
   font-family: 'Bebas Neue', sans-serif;
@@ -35,12 +39,19 @@
   line-height: 1;
   color: var(--yellow);
 }
+
 .navbar__logo-sub {
   display: block;
   font-size: 9px;
   letter-spacing: 0.2em;
   color: var(--gray-light);
   text-transform: uppercase;
+}
+
+.navbar__logo-img {
+  display: block;
+  width: 72px;
+  height: auto;
 }
 
 /* Links */
@@ -50,6 +61,7 @@
   list-style: none;
   margin-left: auto;
 }
+
 .navbar__links a {
   font-size: 14px;
   font-weight: 600;
@@ -58,7 +70,10 @@
   transition: color var(--transition);
   text-transform: uppercase;
 }
-.navbar__links a:hover { color: var(--yellow); }
+
+.navbar__links a:hover {
+  color: var(--yellow);
+}
 
 /* Actions */
 .navbar__actions {
@@ -76,8 +91,14 @@
   color: var(--gray-light);
   transition: color var(--transition);
 }
-.navbar__phone:hover { color: var(--white); }
-.navbar__phone-icon { font-size: 14px; }
+
+.navbar__phone:hover {
+  color: var(--white);
+}
+
+.navbar__phone-icon {
+  font-size: 14px;
+}
 
 .navbar__lang {
   background: var(--dark-3);
@@ -90,6 +111,7 @@
   letter-spacing: 0.05em;
   transition: background var(--transition), border-color var(--transition);
 }
+
 .navbar__lang:hover {
   background: var(--dark-card);
   border-color: var(--yellow);
@@ -114,11 +136,30 @@
   transition: background var(--transition), transform var(--transition);
   white-space: nowrap;
 }
+
 .btn-yellow:hover {
   background: var(--yellow-light);
   transform: translateY(-1px);
 }
-.btn-yellow:active { transform: translateY(0); }
+
+.btn-yellow:active {
+  transform: translateY(0);
+}
+
+/* Mobile lang */
+
+.navbar__lang__mobile {
+  display: none;
+  background: var(--dark-3);
+  color: var(--white);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: background var(--transition), border-color var(--transition);
+}
 
 /* Hamburger */
 .navbar__hamburger {
@@ -129,6 +170,7 @@
   padding: 4px;
   margin-left: auto;
 }
+
 .navbar__hamburger span {
   display: block;
   width: 24px;
@@ -137,9 +179,18 @@
   border-radius: 2px;
   transition: all 0.3s ease;
 }
-.navbar__hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.navbar__hamburger.open span:nth-child(2) { opacity: 0; }
-.navbar__hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.navbar__hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar__hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
 /* Mobile Menu */
 .navbar__mobile {
@@ -153,22 +204,46 @@
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.4s ease;
 }
+
 .navbar__mobile--open {
   max-height: 400px;
   display: flex;
+  text-align: center;
 }
-.navbar__mobile a, .navbar__mobile button {
+
+.navbar__mobile a,
+.navbar__mobile button {
   font-size: 15px;
   font-weight: 600;
   color: var(--gray-light);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.navbar__mobile .btn-yellow { width: fit-content; }
+
+.navbar__mobile .btn-yellow {
+  width: fit-content;
+  align-self: center;
+}
 
 /* Responsive */
 @media (max-width: 900px) {
-  .navbar__links, .navbar__phone { display: none; }
-  .navbar__hamburger { display: flex; }
-  .navbar__actions .btn-yellow, .navbar__actions .navbar__lang { display: none; }
+
+  .navbar__links,
+  .navbar__phone {
+    display: none;
+  }
+
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  .navbar__lang__mobile {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .navbar__actions .btn-yellow,
+  .navbar__actions .navbar__lang {
+    display: none;
+  }
 }

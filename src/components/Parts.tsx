@@ -2,12 +2,12 @@ import { translations, Lang } from '../i18n'
 import './Parts.css'
 
 import engine from "../assets/images/engine.png";
-import tires from "../assets/images/tires.png";
+import transmissions from "../assets/images/transmission.png";
 import body from "../assets/images/body.png";
 
 interface PartsProps { lang: Lang }
 
-const parts = [engine, tires, body]
+const parts = [engine, transmissions, body]
 
 export default function Parts({ lang }: PartsProps) {
   const t = translations[lang].parts
@@ -18,9 +18,9 @@ export default function Parts({ lang }: PartsProps) {
         <div className="parts__header">
           <div>
             <h2 className="parts__title">{t.title}</h2>
-            <p className="parts__subtitle-yellow">{lang === 'es' ? 'Venta de Partes' : 'Parts for Sale'}</p>
+            <p className="parts__subtitle-yellow">{lang === 'es' ? 'Repuestos usados de calidad para autos, camionetas y SUVs! Houston y alrededores.' : 'Quality used parts for cars, trucks and SUVs! Houston and surrounding areas.'}</p>
           </div>
-          <a href="#" className="btn-yellow parts__view-btn">{t.viewInventory}</a>
+          <a href="#quote" className="btn-yellow parts__view-btn">{t.viewInventory}</a>
         </div>
 
         <div className="parts__grid">
@@ -33,8 +33,8 @@ export default function Parts({ lang }: PartsProps) {
               <div className="parts__card-body">
                 <h3 className="parts__card-name">{item.name}</h3>
                 <p className="parts__card-desc">{item.desc}</p>
-                <a href="#" className="parts__card-link">
-                  {lang === 'en' ? 'View details →' : 'Ver detalles →'}
+                <a href="#quote" className="parts__card-link">
+                  {lang === 'en' ? 'Ask for availability →' : 'Consultar disponibilidad →'}
                 </a>
               </div>
             </div>

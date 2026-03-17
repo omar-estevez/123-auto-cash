@@ -1,5 +1,7 @@
 import { translations, Lang } from '../i18n'
-import './Footer.css'
+import './Footer.css';
+
+import logo from "../assets/images/logo.png";
 
 interface FooterProps { lang: Lang }
 
@@ -15,8 +17,9 @@ export default function Footer({ lang }: FooterProps) {
             <div className="footer__logo">
               {/* <span>🚗</span> */}
               <div>
-                <span className="footer__logo-main">123</span>
-                <span className="footer__logo-sub">AUTO CASH</span>
+                {/* <span className="footer__logo-main">123</span>
+                <span className="footer__logo-sub">AUTO CASH</span> */}
+                <img className='footer__logo-img' src={logo} alt='123AutoCash' />
               </div>
             </div>
             <p className="footer__desc">{t.desc}</p>
@@ -52,7 +55,7 @@ export default function Footer({ lang }: FooterProps) {
             <ul className="footer__contact-list">
               <li>
                 <span className="footer__contact-icon">📞</span>
-                <a href="tel:18005865371">1-800-JUNKER</a>
+                <a href="tel:+18324499104">+1 (832)-449-9104</a>
               </li>
               <li>
                 <span className="footer__contact-icon">📍</span>

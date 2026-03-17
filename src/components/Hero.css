@@ -33,8 +33,11 @@
   padding-bottom: 60px;
 }
 
+/* ----------------------------LEFT SIDE-------------------------------- */
+
 .hero__content {
   margin-right: 80px;
+  width: 100%;
 }
 
 /* Badge */
@@ -83,7 +86,7 @@
 /* Subtitle */
 .hero__subtitle {
   font-size: 16px;
-  color: var(--gray-light);
+  color: rgba(255, 255, 255, 0.8);
   max-width: 400px;
   margin-bottom: 36px;
   line-height: 1.6;
@@ -142,8 +145,62 @@
 
 .hero__trust-text {
   font-size: 12px;
-  color: var(--gray-light);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
+}
+
+/* ----------------------------RIGHT SIDE-------------------------------- */
+
+/* Badge */
+.hero__badge_right {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(245, 197, 24, 0.12);
+  border: 1px solid rgba(245, 197, 24, 0.3);
+  color: var(--yellow);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  width: fit-content;
+}
+
+.hero__badge-dot_right {
+  width: 7px;
+  height: 7px;
+  background: var(--yellow);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+/* Title */
+.hero__title_right {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 20px;
+}
+
+.hero__title-white_right {
+  color: var(--white);
+}
+
+.hero__title-yellow_right {
+  color: var(--yellow);
+}
+
+/* Subtitle */
+.hero__subtitle_right {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 400px;
+  margin-bottom: 36px;
+  line-height: 1.6;
 }
 
 /* Car Card */
@@ -171,7 +228,11 @@
 }
 
 .hero__car-img-2 {
-  width: clamp(326px, 90vw, 900px);
+  width: clamp(600px, 48vw, 1000px);
+  height: auto;
+  filter: brightness(0.95) contrast(1.05);
+  filter: drop-shadow(0px 25px 50px rgba(0, 0, 0, 0.6));
+  transition: opacity 0.8s ease;
 }
 
 .hero__offer {

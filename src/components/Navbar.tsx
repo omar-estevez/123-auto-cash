@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { translations, Lang } from '../i18n'
-import './Navbar.css'
+import './Navbar.css';
+
+import logo from "../assets/images/logo.png";
 
 interface NavbarProps {
   lang: Lang
@@ -25,8 +27,9 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
         <a href="#" className="navbar__logo">
           {/* <span className="navbar__logo-icon">🚗</span> */}
           <div>
-            <span className="navbar__logo-main">123</span>
-            <span className="navbar__logo-sub">AUTO CASH</span>
+            {/* <span className="navbar__logo-main">123</span>
+            <span className="navbar__logo-sub">AUTO CASH</span> */}
+            <img className='navbar__logo-img' src={logo} alt='123AutoCash' />
           </div>
         </a>
 
@@ -39,7 +42,7 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
 
         {/* Right side */}
         <div className="navbar__actions">
-          <a href="tel:18005865371" className="navbar__phone">
+          <a href="tel:+18324499104" className="navbar__phone">
             <span className="navbar__phone-icon">📞</span>
             {t.phone}
           </a>
@@ -50,6 +53,9 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
         </div>
 
         {/* Hamburger */}
+        <button className="navbar__lang__mobile" onClick={() => { onLangToggle(); setMenuOpen(false) }}>
+          {lang === 'en' ? '🇲🇽 Español' : '🇺🇸 English'}
+        </button>
         <button
           className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
           onClick={() => setMenuOpen(!menuOpen)}
@@ -65,9 +71,6 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
         <a href="#parts" onClick={() => setMenuOpen(false)}>{t.parts}</a>
         <a href="#reviews" onClick={() => setMenuOpen(false)}>{t.reviews}</a>
         <a href="tel:18005865371" className="navbar__phone">{t.phone}</a>
-        <button className="navbar__lang" onClick={() => { onLangToggle(); setMenuOpen(false) }}>
-          {lang === 'en' ? '🇲🇽 Español' : '🇺🇸 English'}
-        </button>
         <a href="#quote" className="btn-yellow" onClick={() => setMenuOpen(false)}>{t.getQuote}</a>
       </div>
     </nav>

@@ -38,6 +38,11 @@
   text-transform: uppercase;
 }
 
+.footer__logo-img {
+  display: block;
+  width: 30%;
+}
+
 .footer__desc {
   font-size: 13px;
   color: var(--gray);

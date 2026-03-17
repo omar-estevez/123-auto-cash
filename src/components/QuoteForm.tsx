@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { translations, Lang } from '../i18n'
 import './QuoteForm.css'
+import { ButtonText } from '../shared/ButtonText'
 
 interface QuoteFormProps { lang: Lang }
 
@@ -28,7 +29,20 @@ export default function QuoteForm({ lang }: QuoteFormProps) {
             <p className="quote__subtitle">⏱ {t.subtitle}</p>
           </div>
 
-          <form className="quote__form" onSubmit={handleSubmit}>
+          <div className='btn__container'>
+            <ButtonText smsStyle={true}
+              text={lang === 'es' ? 'ESCRÍBENOS' : 'TEXT US NOW'}
+              sendOnText={lang === 'es' ? 'sms:+18324499104?body=Hola%2C%20quiero%20vender%20mi%20auto%20o%20consultar%20repuestos.%20%C2%BFMe%20puedes%20ayudar%3F' : 'sms:+18324499104?body=Hi%2C%20I%20want%20to%20sell%20my%20car%20or%20check%20parts%20availability.%20Can%20you%20help%20me%3F'}
+            />
+            <ButtonText
+              smsStyle={false}
+              text={lang === 'es' ? 'WHATSAPP' : 'WHATSAPP US'}
+              sendOnText={lang === 'es' ? 'https://wa.me/18324499104?text=Hola%2C%20quiero%20vender%20mi%20auto%20o%20consultar%20repuestos.%20%C2%BFMe%20puedes%20ayudar%3F' : 'https://wa.me/18324499104?text=Hi%2C%20I%20want%20to%20sell%20my%20car%20or%20check%20parts%20availability.%20Can%20you%20help%20me%3F'}
+            />
+          </div>
+
+
+          {/* <form className="quote__form" onSubmit={handleSubmit}>
             <div className="quote__grid">
               <div className="quote__field">
                 <label className="quote__label">{t.year}</label>
@@ -98,7 +112,7 @@ export default function QuoteForm({ lang }: QuoteFormProps) {
                 ? (lang === 'en' ? '✓ QUOTE SENT!' : '✓ ¡COTIZACIÓN ENVIADA!')
                 : t.submit}
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     </section>

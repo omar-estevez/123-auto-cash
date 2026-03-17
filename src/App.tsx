@@ -9,10 +9,20 @@ import Reviews from './components/Reviews'
 import Footer from './components/Footer'
 import type { Lang } from './i18n'
 import './App.css'
+import { FloatingButton } from './shared/FloatingButton'
 
 export default function App() {
   const [lang, setLang] = useState<Lang>('en')
   const toggleLang = () => setLang(l => l === 'en' ? 'es' : 'en')
+
+  if (window.location.hash === "#dev") {
+    console.log(
+      "%cDeveloped by Omar Estevez 🚀 - estevezneira_2005@hotmail.com",
+      "color: #facc15; font-size: 16px; font-weight: bold;"
+    );
+  }
+
+
 
   return (
     <>
@@ -26,6 +36,12 @@ export default function App() {
         <Reviews lang={lang} />
       </main>
       <Footer lang={lang} />
+      <FloatingButton />
     </>
   )
 }
+
+/**
+ * Website developed by Omar Estevez
+ * All rights reserved © 2026
+ */
