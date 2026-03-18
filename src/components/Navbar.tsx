@@ -28,7 +28,7 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
           {/* <span className="navbar__logo-icon">🚗</span> */}
           <div>
             {/* <span className="navbar__logo-main">123</span>
-            <span className="navbar__logo-sub">AUTO CASH</span> */}
+            <h1 className="navbar__logo-sub">AUTO CASH HOUSTON</h1> */}
             <img className='navbar__logo-img' src={logo} alt='123AutoCash' />
           </div>
         </a>
@@ -46,23 +46,37 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
             <span className="navbar__phone-icon">📞</span>
             {t.phone}
           </a>
+
           <button className="navbar__lang" onClick={onLangToggle} title="Toggle language">
             {lang === 'en' ? '🇲🇽 ES' : '🇺🇸 EN'}
           </button>
           <a href="#quote" className="btn-yellow">{t.getQuote}</a>
         </div>
 
-        {/* Hamburger */}
-        <button className="navbar__lang__mobile" onClick={() => { onLangToggle(); setMenuOpen(false) }}>
-          {lang === 'en' ? '🇲🇽 Español' : '🇺🇸 English'}
-        </button>
-        <button
-          className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span /><span /><span />
-        </button>
+        {/* Hamburger Mobile */}
+        <div className='navbar__lang__mobile__container'>
+          <button className="navbar__lang__mobile" onClick={() => { onLangToggle(); setMenuOpen(false) }}>
+            {lang === 'en' ? '🇲🇽 Español' : '🇺🇸 English'}
+          </button>
+        </div>
+
+        <div className='navbar__logo__mobile__container'>
+          <a href="#" className="navbar__logo__mobile">
+            <img className='navbar__logo-img' src={logo} alt='123AutoCash' />
+          </a>
+        </div>
+
+
+        <div className='navbar__hamburger__container'>
+          <button
+            className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            <span /><span /><span />
+          </button>
+        </div>
+
       </div>
 
       {/* Mobile Menu */}
