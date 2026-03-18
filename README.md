@@ -60,3 +60,10 @@ de toda la página instantáneamente sin recargar.
 - ✅ Mobile (< 768px)
 - ✅ Tablet (768px – 1024px)
 - ✅ Desktop (> 1024px)
+
+
+## Deploy
+git commit -a -m "cambio"
+git push
+pnpm run build
+npx wrangler pages deploy dist --project-name=123-auto-cash
