@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { translations, Lang } from '../i18n'
 import './QuoteForm.css'
 import { ButtonText } from '../shared/ButtonText'
@@ -7,18 +6,18 @@ interface QuoteFormProps { lang: Lang }
 
 export default function QuoteForm({ lang }: QuoteFormProps) {
   const t = translations[lang].quote
-  const [submitted, setSubmitted] = useState(false)
-  const [form, setForm] = useState({ year: '', make: '', model: '', condition: '', phone: '' })
+  // const [submitted, setSubmitted] = useState(false)
+  // const [form, setForm] = useState({ year: '', make: '', model: '', condition: '', phone: '' })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+  // const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  //   setForm({ ...form, [e.target.name]: e.target.value })
+  // }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 4000)
-  }
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault()
+  //   setSubmitted(true)
+  //   setTimeout(() => setSubmitted(false), 4000)
+  // }
 
   return (
     <section className="quote section" id="quote">
