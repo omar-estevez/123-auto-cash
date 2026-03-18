@@ -1,7 +1,7 @@
 import { translations, Lang } from '../i18n'
 import './Footer.css';
 
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/Logo.png";
 
 interface FooterProps { lang: Lang }
 
