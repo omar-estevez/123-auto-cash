@@ -3,7 +3,7 @@ export type Lang = 'en' | 'es'
 export const translations = {
   en: {
     nav: {
-      howItWorks: 'How It Works aaaaaaaaaaaaaaaa',
+      howItWorks: 'How It Works',
       parts: 'Parts',
       reviews: 'Reviews',
       phone: '+1 (832)-449-9104',
