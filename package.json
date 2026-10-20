@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "test": "node --test --test-isolation=none tests/security.test.mjs",
+    "build": "tsc && vite build && node scripts/prerender.mjs && node scripts/check-build.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

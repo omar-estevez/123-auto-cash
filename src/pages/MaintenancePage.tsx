@@ -1,4 +1,4 @@
-import logo from "../assets/images/Logo.png";
+import logo from "../assets/images/Logo.webp";
 import './MaintenancePage.css';
 
 export const MaintenancePage = () => {

@@ -1,69 +1,21 @@
-# 🚗 Junker Cash – Landing Page
+# 123 Auto Cash
 
-Landing page bilingüe (EN/ES) para empresa de compra de autos chatarra.
+Sitio bilingüe en inglés (`/`) y español (`/es/`) para compra de carros y venta de partes usadas en Houston. Catálogo por StockID, consultas por WhatsApp/SMS y dashboard privado en `/admin/`.
 
-## Stack
-- **React 18** + **Vite 5** + **TypeScript**
-- CSS Modules por componente (sin dependencias de UI externas)
-- Fuentes: Bebas Neue + Barlow + Barlow Condensed (Google Fonts)
-- i18n manual con `src/i18n.ts`
+## Desarrollo y comprobaciones
 
-## Estructura del proyecto
+- `pnpm install --frozen-lockfile`
+- `pnpm dev`
+- `pnpm build`: TypeScript, Vite, HTML prerenderizado y comprobaciones SEO.
+- `pnpm test`: pruebas de privacidad, autenticación y API.
+- `pnpm exec wrangler dev`: Worker y D1 local; aplicar antes migraciones locales.
 
-```
-src/
-├── components/
-│   ├── Navbar.tsx / .css      — Barra de navegación fija + menú móvil
-│   ├── Hero.tsx / .css        — Sección principal con auto SVG y oferta
-│   ├── QuoteForm.tsx / .css   — Formulario de cotización instantánea
-│   ├── Features.tsx / .css    — Remolque gratis, mismo día, mejor precio
-│   ├── HowItWorks.tsx / .css  — Pasos 1-2-3 con conector visual
-│   ├── Parts.tsx / .css       — Catálogo de partes con SVGs
-│   ├── Reviews.tsx / .css     — Testimonios de clientes
-│   └── Footer.tsx / .css      — Pie de página con links y contacto
-├── i18n.ts                    — Traducciones EN / ES
-├── App.tsx                    — Root con toggle de idioma
-├── App.css
-├── index.css                  — Variables globales, reset, utilidades
-└── main.tsx
-```
+## Publicación
 
-## Instalación y uso
+El proyecto existente usa Cloudflare Workers con compilación automática desde `master` del repositorio `omar-estevez/123-auto-cash`. Publicar con commit y push a GitHub. Verificar el despliegue y el dominio al terminar. No publicar directamente desde la máquina.
 
-```bash
-# Instalar dependencias
-npm install
+`server/worker.mjs` sirve las API y los archivos de `dist`. D1 contiene contadores agregados e inventario público. `SETUP.md` documenta autenticación y sincronización privada de Google Sheets/Drive.
 
-# Servidor de desarrollo
-npm run dev
+El formulario prepara un mensaje; el cliente lo envía desde su aplicación. No se guardan formularios ni se confirma falsamente su envío. Las visitas son cargas de página, no personas únicas, y los clics no son ventas.
 
-# Build de producción
-npm run build
-
-# Preview del build
-npm run preview
-```
-
-## Cambio de idioma
-El botón 🇲🇽 ES / 🇺🇸 EN en la navbar (y en el menú móvil) cambia el idioma
-de toda la página instantáneamente sin recargar.
-
-## Personalización rápida
-
-- **Colores** → `src/index.css` (variables CSS `:root`)
-- **Traducciones / textos** → `src/i18n.ts`
-- **Número de teléfono** → busca `1-800-JUNKER` en `Navbar.tsx` y `Footer.tsx`
-- **Imágenes reales** → reemplaza los SVGs inline en `Hero.tsx` y `Parts.tsx`
-  con `<img src="...">` dentro de los mismos contenedores
-
-## Responsive
-- ✅ Mobile (< 768px)
-- ✅ Tablet (768px – 1024px)
-- ✅ Desktop (> 1024px)
-
-
-## Deploy
-git commit -a -m "cambio"
-git push
-pnpm run build
-npx wrangler pages deploy dist --project-name=123-auto-cash
+Para revertir, revertir el commit y hacer push; no usar force-push.

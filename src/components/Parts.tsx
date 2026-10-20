@@ -1,9 +1,9 @@
 import { translations, Lang } from '../i18n'
 import './Parts.css'
 
-import engine from "../assets/images/engine.png";
-import transmissions from "../assets/images/transmission.png";
-import body from "../assets/images/body.png";
+import engine from "../assets/images/engine.webp";
+import transmissions from "../assets/images/transmission.webp";
+import body from "../assets/images/body.webp";
 
 interface PartsProps { lang: Lang }
 
@@ -27,13 +27,13 @@ export default function Parts({ lang }: PartsProps) {
           {t.items.map((item, i) => (
             <div className="parts__card" key={i}>
               <div className="parts__card-img">
-                <span className="tag parts__tag">{item.label}</span>
-                <img src={parts[i]} alt='123 auto cash' />
+                <span className="tag parts__tag">{lang === "es" ? "Consultar" : "Inquire"}</span>
+                <img src={parts[i]} alt={item.name} loading="lazy" width="400" height="300" />
               </div>
               <div className="parts__card-body">
                 <h3 className="parts__card-name">{item.name}</h3>
                 <p className="parts__card-desc">{item.desc}</p>
-                <a href="#quote" className="parts__card-link">
+                <a href={`https://wa.me/18324499104?text=${encodeURIComponent(lang === "es" ? `Hola, busco ${item.name.toLowerCase()}. ¿Qué datos necesitan para confirmar disponibilidad y compatibilidad?` : `Hello, I am looking for ${item.name.toLowerCase()}. What details do you need to confirm availability and fitment?`)}`} target="_blank" rel="noopener noreferrer" className="parts__card-link">
                   {lang === 'en' ? 'Ask for availability →' : 'Consultar disponibilidad →'}
                 </a>
               </div>

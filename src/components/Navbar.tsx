@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react'
 import { translations, Lang } from '../i18n'
 import './Navbar.css';
 
-import logo from "../assets/images/Logo.png";
+import logo from "../assets/images/Logo.webp";
 
 interface NavbarProps {
   lang: Lang
-  onLangToggle: () => void
 }
 
-export default function Navbar({ lang, onLangToggle }: NavbarProps) {
+export default function Navbar({ lang }: NavbarProps) {
   const t = translations[lang].nav
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -24,7 +23,7 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
         {/* Logo */}
-        <a href="#" className="navbar__logo">
+        <a href="#home" className="navbar__logo">
           {/* <span className="navbar__logo-icon">🚗</span> */}
           <div>
             {/* <span className="navbar__logo-main">123</span>
@@ -35,9 +34,10 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
 
         {/* Desktop Nav */}
         <ul className="navbar__links">
+          <li><a href="#inventory">{lang === 'es' ? 'Inventario' : 'Inventory'}</a></li>
           <li><a href="#how-it-works">{t.howItWorks}</a></li>
           <li><a href="#parts">{t.parts}</a></li>
-          <li><a href="#reviews">{t.reviews}</a></li>
+          <li><a href="#faq">{lang === "es" ? "Preguntas" : "FAQ"}</a></li>
         </ul>
 
         {/* Right side */}
@@ -47,21 +47,21 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
             {t.phone}
           </a>
 
-          <button className="navbar__lang" onClick={onLangToggle} title="Toggle language">
+          <a className="navbar__lang" href={lang === 'en' ? '/es/' : '/'} hrefLang={lang === 'en' ? 'es' : 'en'} lang={lang === 'en' ? 'es' : 'en'} aria-label={lang === 'en' ? 'Leer en español' : 'Read in English'}>
             {lang === 'en' ? '🇲🇽 ES' : '🇺🇸 EN'}
-          </button>
+          </a>
           <a href="#quote" className="btn-yellow">{t.getQuote}</a>
         </div>
 
         {/* Hamburger Mobile */}
         <div className='navbar__lang__mobile__container'>
-          <button className="navbar__lang__mobile" onClick={() => { onLangToggle(); setMenuOpen(false) }}>
+          <a className="navbar__lang__mobile" href={lang === 'en' ? '/es/' : '/'} hrefLang={lang === 'en' ? 'es' : 'en'} lang={lang === 'en' ? 'es' : 'en'}>
             {lang === 'en' ? '🇲🇽 Español' : '🇺🇸 English'}
-          </button>
+          </a>
         </div>
 
         <div className='navbar__logo__mobile__container'>
-          <a href="#" className="navbar__logo__mobile">
+          <a href="#home" className="navbar__logo__mobile">
             <img className='navbar__logo-img' src={logo} alt='123AutoCash' />
           </a>
         </div>
@@ -71,7 +71,9 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
           <button
             className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={lang === "es" ? "Abrir menú" : "Toggle menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
           >
             <span /><span /><span />
           </button>
@@ -80,11 +82,12 @@ export default function Navbar({ lang, onLangToggle }: NavbarProps) {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
+      <div id="mobile-navigation" hidden={!menuOpen} className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
+        <a href="#inventory" onClick={() => setMenuOpen(false)}>{lang === 'es' ? 'Inventario' : 'Inventory'}</a>
         <a href="#how-it-works" onClick={() => setMenuOpen(false)}>{t.howItWorks}</a>
         <a href="#parts" onClick={() => setMenuOpen(false)}>{t.parts}</a>
-        <a href="#reviews" onClick={() => setMenuOpen(false)}>{t.reviews}</a>
-        <a href="tel:18005865371" className="navbar__phone">{t.phone}</a>
+        <a href="#faq" onClick={() => setMenuOpen(false)}>{lang === "es" ? "Preguntas" : "FAQ"}</a>
+        <a href="tel:+18324499104" className="navbar__phone">{t.phone}</a>
         <a href="#quote" className="btn-yellow" onClick={() => setMenuOpen(false)}>{t.getQuote}</a>
       </div>
     </nav>

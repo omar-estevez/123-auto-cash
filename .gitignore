@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.prerender/
+.wrangler/
+.dev.vars*
+.env*
