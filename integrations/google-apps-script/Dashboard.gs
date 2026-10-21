@@ -1,0 +1,18 @@
+// Deploy as a web app with access MYSELF only, under the owner's Google account.
+// The read-only API key stays in Script Properties and never enters the HTML.
+function doGet(e) {
+  const days=['7','30','90'].indexOf(String(e && e.parameter && e.parameter.days))>=0?e.parameter.days:'30';
+  const key=PropertiesService.getScriptProperties().getProperty('DASHBOARD_READ_SECRET');
+  if(!key)throw new Error('Dashboard connection is not configured.');
+  const response=UrlFetchApp.fetch(CONFIG.site+'/admin/api/stats?days='+days,{headers:{Authorization:'Bearer '+key},muteHttpExceptions:true});
+  if(response.getResponseCode()!==200)throw new Error('Statistics unavailable. Please try again later.');
+  const data=JSON.parse(response.getContentText()),rows=data.rows||[];
+  const labels={page_view:'Visitas a páginas',phone:'Teléfono',whatsapp:'WhatsApp',sms:'SMS',email:'Correo',inventory_inquiry:'Consulta de partes',inventory_filter:'Filtros de inventario',language:'Cambio de idioma',directions:'Cómo llegar',quote_open:'Abrir cotización',quote_car_whatsapp:'Cotizar carro por WhatsApp',quote_car_sms:'Cotizar carro por SMS',quote_part_whatsapp:'Cotizar parte por WhatsApp',quote_part_sms:'Cotizar parte por SMS'};
+  const escape=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const group=field=>{const out={};rows.forEach(r=>{const k=r[field]||'Sin dato';out[k]=(out[k]||0)+Number(r.count||0);});return out;};
+  const table=(title,values,names)=>'<section><h2>'+escape(title)+'</h2><table><tbody>'+Object.entries(values).sort((a,b)=>b[1]-a[1]).map(([k,v])=>'<tr><td>'+escape(names&&names[k]||k)+'</td><td>'+v+'</td></tr>').join('')+'</tbody></table></section>';
+  const totals=group('event'),views=totals.page_view||0;
+  const clicks=rows.filter(r=>r.event!=='page_view'&&r.event!=='inventory_filter').reduce((n,r)=>n+Number(r.count||0),0);
+  const content='<!doctype html><html lang="es"><head><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font:16px system-ui;background:#101719;color:#f4f5f5;margin:0;padding:24px}main{max-width:1000px;margin:auto}h1{color:#ffd028}section,.card{background:#1d282c;border-radius:12px;padding:20px}a{color:#ffd028}nav{display:flex;gap:20px;margin:24px 0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}table{width:100%;border-collapse:collapse}td{padding:10px 0;border-bottom:1px solid #394348}td:last-child{text-align:right}small,p{color:#c4ced1}.number{font-size:40px;font-weight:700}</style></head><body><main><h1>123AutoCash · Estadísticas</h1><p>Últimos '+days+' días · America/Chicago · hasta '+escape(data.today)+'</p><nav>'+['7','30','90'].map(d=>'<a target="_top" href="'+escape(ScriptApp.getService().getUrl())+'?days='+d+'">'+d+' días</a>').join('')+'</nav><div class="grid"><div class="card">Visitas a páginas<div class="number">'+views+'</div></div><div class="card">Interacciones y clics<div class="number">'+clicks+'</div></div></div><p>Las visitas no son personas únicas. Incluyen recargas y pruebas. Los clics no confirman ventas. Se respetan DNT/GPC y se excluyen bots conocidos.</p><div class="grid">'+table('Botones y eventos',totals,labels)+table('Idioma — todos los eventos',group('lang'),{es:'Español',en:'English'})+table('Dispositivo — todos los eventos',group('device'))+table('Origen — todos los eventos',group('source'))+table('Actividad diaria — todos los eventos',group('day'))+'</div><p>Inventario actualizado: '+escape(data.inventoryUpdatedAt||'Sin sincronización')+'</p></main></body></html>';
+  return HtmlService.createHtmlOutput(content).setTitle('123AutoCash · Estadísticas').addMetaTag('viewport','width=device-width,initial-scale=1');
+}

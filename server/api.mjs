@@ -18,7 +18,9 @@ export async function handleApi(request, env) {
   const url = new URL(request.url)
   const path = url.pathname
   if (!path.startsWith('/api/') && !path.startsWith('/admin/api/')) return null
-  if (path.startsWith('/admin/api/') && !await authorized(request, env)) return json({error:'Sign in with the authorized Cloudflare Access account.'},403)
+  // A separate read-only key is held only by the owner's private Google panel.
+  const privateReader = path === '/admin/api/stats' && request.method === 'GET' && await syncAuthorized(request,{INVENTORY_SYNC_SECRET:env.DASHBOARD_READ_SECRET})
+  if (path.startsWith('/admin/api/') && !privateReader && !await authorized(request, env)) return json({error:'Sign in with the authorized administrator account.'},403)
   if (!env.DB) return json({error:'Service is not configured yet.'},503)
   try {
     if (path === '/api/events' && request.method === 'POST') {

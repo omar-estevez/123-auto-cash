@@ -17,6 +17,17 @@ test('Dashboard is denied when unconfigured or given a forged token',async()=>{
   assert.equal(await authorized(new Request('https://123autocash.com/admin/api/stats'),{}),false)
   const response=await handleApi(new Request('https://123autocash.com/admin/api/stats'),{DB:{}});assert.equal(response.status,403)
 })
+
+test('Private Google reader can read statistics but cannot write inventory',async()=>{
+  const key='read-only-test-key-'.repeat(3);
+  const env={DASHBOARD_READ_SECRET:key,INVENTORY_SYNC_SECRET:'separate-write-key-'.repeat(3),DB:{prepare:()=>({bind:()=>({all:async()=>({results:[]})}),first:async()=>null})}};
+  const req=(path,method='GET',secret=key)=>new Request('https://123autocash.com'+path,{method,headers:{Authorization:'Bearer '+secret}});
+  assert.equal((await handleApi(req('/admin/api/stats'),env)).status,200);
+  assert.equal((await handleApi(req('/admin/api/stats','GET','wrong'),env)).status,403);
+  assert.equal((await handleApi(req('/admin/api/stats','POST'),env)).status,403);
+  assert.equal((await handleApi(req('/api/inventory-sync','POST'),env)).status,401);
+  assert.equal((await handleApi(req('/api/photo-sync','POST'),env)).status,401);
+});
 test('Access requires valid signature, audience, expiry and owner email',async()=>{
   const keys=await crypto.subtle.generateKey({name:'RSASSA-PKCS1-v1_5',modulusLength:2048,publicExponent:new Uint8Array([1,0,1]),hash:'SHA-256'},true,['sign','verify'])
   const jwk=await crypto.subtle.exportKey('jwk',keys.publicKey);jwk.kid='test-key'
