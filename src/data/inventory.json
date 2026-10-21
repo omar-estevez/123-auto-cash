@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-20T03:01:00Z",
+  "updatedAt": "2026-10-21T02:34:17.490Z",
   "vehicles": [
     {
       "id": "1002",
@@ -11,7 +11,8 @@
       "transmission": "Manual",
       "drivetrain": "",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1004",
@@ -23,7 +24,8 @@
       "transmission": "Auto",
       "drivetrain": "4x2 (RWD)",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1005",
@@ -35,7 +37,8 @@
       "transmission": "Auto",
       "drivetrain": "4x4",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1006",
@@ -47,7 +50,8 @@
       "transmission": "Auto",
       "drivetrain": "4x4",
       "color": "Azul",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1007",
@@ -59,7 +63,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1008",
@@ -71,7 +76,8 @@
       "transmission": "Auto",
       "drivetrain": "4x4",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1009",
@@ -83,7 +89,8 @@
       "transmission": "Auto",
       "drivetrain": "4x4",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1010",
@@ -95,7 +102,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1011",
@@ -107,7 +115,8 @@
       "transmission": "Auto",
       "drivetrain": "AWD (Quattro)",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1012",
@@ -119,7 +128,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Azul",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1013",
@@ -131,7 +141,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1014",
@@ -143,7 +154,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Azul",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1016",
@@ -155,7 +167,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1017",
@@ -167,7 +180,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1018",
@@ -179,7 +193,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Azul",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1019",
@@ -191,7 +206,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1020",
@@ -203,7 +219,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1021",
@@ -215,7 +232,8 @@
       "transmission": "Auto",
       "drivetrain": "AWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1024",
@@ -227,7 +245,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1025",
@@ -239,7 +258,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Verde",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1026",
@@ -251,7 +271,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1029",
@@ -263,7 +284,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1030",
@@ -275,7 +297,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1031",
@@ -287,7 +310,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1032",
@@ -299,7 +323,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1033",
@@ -311,7 +336,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1034",
@@ -323,7 +349,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1036",
@@ -335,7 +362,8 @@
       "transmission": "Auto",
       "drivetrain": "AWD",
       "color": "Cafe",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1038",
@@ -347,7 +375,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1039",
@@ -359,7 +388,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1040",
@@ -371,7 +401,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Azul",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1041",
@@ -383,7 +414,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1042",
@@ -395,7 +427,8 @@
       "transmission": "Auto",
       "drivetrain": "AWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1043",
@@ -407,7 +440,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1044",
@@ -419,7 +453,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1046",
@@ -431,7 +466,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1048",
@@ -443,7 +479,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1049",
@@ -455,7 +492,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1051",
@@ -467,7 +505,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1053",
@@ -479,7 +518,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1054",
@@ -491,7 +531,8 @@
       "transmission": "CVT",
       "drivetrain": "FWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1055",
@@ -503,7 +544,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1056",
@@ -515,7 +557,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1057",
@@ -527,7 +570,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Azul",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1058",
@@ -539,7 +583,8 @@
       "transmission": "CVT",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1059",
@@ -551,7 +596,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Azul",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1060",
@@ -563,7 +609,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1061",
@@ -575,7 +622,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1062",
@@ -587,7 +635,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1063",
@@ -599,7 +648,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Azul",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1065",
@@ -611,7 +661,8 @@
       "transmission": "Auto",
       "drivetrain": "AWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1066",
@@ -623,7 +674,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1068",
@@ -635,7 +687,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1069",
@@ -647,7 +700,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1070",
@@ -659,7 +713,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1071",
@@ -671,7 +726,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1072",
@@ -683,7 +739,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1073",
@@ -695,7 +752,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1074",
@@ -707,7 +765,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1075",
@@ -719,7 +778,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1076",
@@ -731,7 +791,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1077",
@@ -743,7 +804,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1078",
@@ -755,7 +817,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1079",
@@ -767,7 +830,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1080",
@@ -779,7 +843,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1083",
@@ -791,7 +856,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1084",
@@ -803,7 +869,8 @@
       "transmission": "CVT",
       "drivetrain": "FWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1085",
@@ -815,7 +882,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1086",
@@ -827,7 +895,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Cafe",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1087",
@@ -839,7 +908,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1088",
@@ -851,7 +921,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1089",
@@ -863,7 +934,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1090",
@@ -875,7 +947,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1091",
@@ -887,7 +960,8 @@
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1092",
@@ -899,7 +973,8 @@
       "transmission": "CVT",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1093",
@@ -911,7 +986,8 @@
       "transmission": "Auto",
       "drivetrain": "AWD / xDrive",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1094",
@@ -923,7 +999,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1095",
@@ -935,7 +1012,8 @@
       "transmission": "CVT",
       "drivetrain": "FWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1096",
@@ -947,7 +1025,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1097",
@@ -959,19 +1038,21 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1098",
       "year": 2016,
-      "make": "Ram",
-      "model": "ProMaster 2500",
+      "make": "Dodge",
+      "model": "Ram ProMaster 2500",
       "trim": "High Roof Cargo Van",
       "engine": "3.6L Pentastar V6",
       "transmission": "Auto",
       "drivetrain": "FWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1100",
@@ -983,7 +1064,8 @@
       "transmission": "Auto",
       "drivetrain": "4WD",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1101",
@@ -995,7 +1077,8 @@
       "transmission": "Auto",
       "drivetrain": "RWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1103",
@@ -1007,7 +1090,8 @@
       "transmission": "eCVT",
       "drivetrain": "FWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1104",
@@ -1019,7 +1103,8 @@
       "transmission": "Automática 8 vel",
       "drivetrain": "FWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1105",
@@ -1031,7 +1116,8 @@
       "transmission": "CVT",
       "drivetrain": "FWD",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1107",
@@ -1043,7 +1129,8 @@
       "transmission": "Automática 6 vel PowerShift",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1108",
@@ -1055,7 +1142,8 @@
       "transmission": "Automática 4 vel",
       "drivetrain": "FWD",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1109",
@@ -1067,7 +1155,8 @@
       "transmission": "Automática 6 vel",
       "drivetrain": "FWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1110",
@@ -1079,7 +1168,8 @@
       "transmission": "Automática 4 vel",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1111",
@@ -1091,7 +1181,8 @@
       "transmission": "Automática 9 vel",
       "drivetrain": "FWD",
       "color": "Gris",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1113",
@@ -1103,7 +1194,8 @@
       "transmission": "Automática",
       "drivetrain": "FWD",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1114",
@@ -1115,7 +1207,8 @@
       "transmission": "CVT",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1115",
@@ -1127,7 +1220,8 @@
       "transmission": "Automática 4 vel",
       "drivetrain": "4WD",
       "color": "Beige",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1116",
@@ -1139,7 +1233,8 @@
       "transmission": "Automática 6 vel",
       "drivetrain": "AWD / 4MOTION",
       "color": "Plateado",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1117",
@@ -1151,7 +1246,8 @@
       "transmission": "Automática 4 vel",
       "drivetrain": "RWD / 2WD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1118",
@@ -1163,7 +1259,8 @@
       "transmission": "Automática 6 vel",
       "drivetrain": "RWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1119",
@@ -1175,7 +1272,8 @@
       "transmission": "Automática 6 vel",
       "drivetrain": "AWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1120",
@@ -1187,7 +1285,8 @@
       "transmission": "Automática 6 vel",
       "drivetrain": "FWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1121",
@@ -1199,7 +1298,8 @@
       "transmission": "Automática 6 vel",
       "drivetrain": "FWD",
       "color": "Rojo",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1122",
@@ -1211,7 +1311,8 @@
       "transmission": "Automática 8 vel",
       "drivetrain": "4WD / 4x4",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1123",
@@ -1223,7 +1324,8 @@
       "transmission": "Automática 6 vel",
       "drivetrain": "FWD",
       "color": "Plateada",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1124",
@@ -1235,7 +1337,8 @@
       "transmission": "Automática",
       "drivetrain": "RWD / 2WD",
       "color": "Cafe",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1125",
@@ -1247,7 +1350,8 @@
       "transmission": "Automática 7 vel",
       "drivetrain": "AWD / 4MATIC",
       "color": "Blanco",
-      "status": "available"
+      "status": "available",
+      "photos": []
     },
     {
       "id": "1126",
@@ -1259,7 +1363,8 @@
       "transmission": "Automática 6 vel",
       "drivetrain": "FWD",
       "color": "Negro",
-      "status": "available"
+      "status": "available",
+      "photos": []
     }
   ]
 }

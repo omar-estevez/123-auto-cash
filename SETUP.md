@@ -9,7 +9,7 @@ Crear una base D1 para este proyecto, aplicar `migrations/0001_initial.sql` y vi
 Crear una aplicación Cloudflare Access para `123autocash.com/admin` y `123autocash.com/admin/*`, permitiendo solo el correo del propietario, con código por correo o su proveedor de identidad. Configurar en el Worker `ACCESS_TEAM_DOMAIN`, `ACCESS_AUD` y `ADMIN_EMAIL`. La API verifica firma, emisor, audiencia, caducidad y correo, también desde workers.dev. Sin configuración deniega el acceso. El dashboard está en `/admin/`; no contiene cifras simuladas.
 
 ## Google Sheets y fotos
-Fuente: `Vehiculos Publica`. Solo salen StockID, año, marca, modelo, versión, motor, transmisión, tracción y color, para filas con Estado `En stock`. VIN, notas y ubicación interna no salen. El servidor repite el filtro. El catálogo usa una copia revisada al inicio y consulta la API. Si falla, indica confirmar disponibilidad. El HTML indexable cambia con el build; el catálogo interactivo puede actualizarse sin push.
+Fuente: `Vehiculos`. Solo salen StockID, año, marca, modelo, versión, motor, transmisión, tracción y color, para filas con Estado `En stock`. VIN, notas y ubicación interna no salen. El servidor repite el filtro. El catálogo usa una copia revisada al inicio y consulta la API. Si falla, indica confirmar disponibilidad. El HTML indexable cambia con el build; el catálogo interactivo puede actualizarse sin push.
 
 Los nombres de fotos deben comenzar con StockID, por ejemplo `1002- Polaris Slingshot 2017.JPG` o `1002-1.jpg`. Se agrupan hasta seis imágenes por carro, ordenadas por nombre e ID de archivo. Elegir fotos sin VIN visibles, documentos ni datos de clientes. La web recibe miniaturas, no enlaces de Drive ni nombres originales. El filtro de texto no elimina VIN fotografiados.
 

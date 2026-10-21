@@ -1,7 +1,7 @@
 // Private source. Only explicitly selected public fields leave Google Sheets.
 const CONFIG = {
   spreadsheetId: '1I42k5kQQEnaNn6iKIu0dYfMRK5aQjLMfLmDnKjJ0XI4',
-  sheet: 'Vehiculos Publica',
+  sheet: 'Vehiculos',
   photosFolder: '1uxGCkZ8NbytxUZKwo_qG3nZJJ9rWrpEI',
   site: 'https://123autocash.com',
 };
@@ -13,10 +13,16 @@ function syncInventory() {
     const sheet=SpreadsheetApp.openById(CONFIG.spreadsheetId).getSheetByName(CONFIG.sheet);
     if(!sheet)throw new Error('Public inventory sheet not found.');
     if(sheet.getLastRow()>2000)throw new Error('Inventory exceeds the configured row limit.');
-    const values=sheet.getRange(1,1,Math.max(1,sheet.getLastRow()),13).getDisplayValues();
-    const headers=values.shift();
     const allowed=['StockID','Año','Marca','Modelo','Version / Trim','Motor','Transmission','Traccion','Color','Estado'];
+    const headers=sheet.getRange(1,1,1,sheet.getLastColumn()).getDisplayValues()[0];
     allowed.forEach(h=>{if(headers.indexOf(h)<0)throw new Error('Missing column: '+h);});
+    // Read only allowlisted columns; never read VIN or private notes into rows.
+    const count=Math.max(0,sheet.getLastRow()-1);
+    const values=Array.from({length:count},()=>[]);
+    allowed.forEach(h=>{
+      const col=headers.indexOf(h);
+      if(count)sheet.getRange(2,col+1,count,1).getDisplayValues().forEach((r,i)=>{values[i][col]=r[0];});
+    });
     const rows=values.filter(r=>String(r[headers.indexOf('Estado')]).trim().toLowerCase()==='en stock').map(r=>{
       const out={}; allowed.forEach(h=>out[h]=r[headers.indexOf(h)]);out.photos=[];return out;
     });
