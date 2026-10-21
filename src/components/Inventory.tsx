@@ -1,15 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import type { Lang } from '../i18n'
 import initial from '../data/inventory.json'
+import publishedPhotos from '../data/inventory-photos.json'
 import { track } from '../analytics'
 
 type Vehicle = typeof initial.vehicles[number] & {photos?:number[]}
 type InventoryData={updatedAt:string,vehicles:Vehicle[]}
 function VehiclePhotos({vehicle,es}:{vehicle:Vehicle,es:boolean}) {
   const [index,setIndex]=useState(0),[failed,setFailed]=useState(false)
-  const photos=vehicle.photos||[]
+  const localPhotos=(publishedPhotos as Record<string,string[]>)[vehicle.id]||[]
+  const photos=vehicle.photos?.length?vehicle.photos.map(position=>`/api/inventory-photo/${vehicle.id}/${position}`):localPhotos
   if(!photos.length||failed)return <div className="inventory__photo"><span aria-hidden="true">↗</span><p>{es?'Solicita fotos de la parte':'Ask for photos of the part'}</p><small>STOCK #{vehicle.id}</small></div>
-  return <div className="inventory__gallery"><img loading="lazy" width="400" height="250" src={`/api/inventory-photo/${vehicle.id}/${photos[index]||photos[0]}`} alt={`${vehicle.year} ${vehicle.make} ${vehicle.model} — ${es?'carro para partes':'parts vehicle'} #${vehicle.id}`} onError={()=>setFailed(true)} /><span>STOCK #{vehicle.id}</span>{photos.length>1&&<button aria-label={es?'Ver siguiente foto':'View next photo'} onClick={()=>setIndex(n=>(n+1)%photos.length)}>{index+1}/{photos.length} →</button>}</div>
+  return <div className="inventory__gallery"><img loading="lazy" width="400" height="250" src={photos[index]||photos[0]} alt={`${vehicle.year} ${vehicle.make} ${vehicle.model} — ${es?'carro para partes':'parts vehicle'} #${vehicle.id}`} onError={()=>setFailed(true)} /><span>STOCK #{vehicle.id}</span>{photos.length>1&&<button aria-label={es?'Ver siguiente foto':'View next photo'} onClick={()=>setIndex(n=>(n+1)%photos.length)}>{index+1}/{photos.length} →</button>}</div>
 }
 export default function Inventory({lang}:{lang:Lang}) {
   const es=lang==='es'
