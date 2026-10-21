@@ -10,18 +10,21 @@ function syncInventory() {
   try {
     const secret=PropertiesService.getScriptProperties().getProperty('INVENTORY_SYNC_SECRET');
     if(!secret||secret.length<32)throw new Error('Configure INVENTORY_SYNC_SECRET in script properties.');
-    const sheet=SpreadsheetApp.openById(CONFIG.spreadsheetId).getSheetByName(CONFIG.sheet);
-    if(!sheet)throw new Error('Public inventory sheet not found.');
-    if(sheet.getLastRow()>2000)throw new Error('Inventory exceeds the configured row limit.');
     const allowed=['StockID','Año','Marca','Modelo','Version / Trim','Motor','Transmission','Traccion','Color','Estado'];
-    const headers=sheet.getRange(1,1,1,sheet.getLastColumn()).getDisplayValues()[0];
+    const headers=sheetRead_(["'"+CONFIG.sheet+"'!A1:AG1"])[0].values[0];
     allowed.forEach(h=>{if(headers.indexOf(h)<0)throw new Error('Missing column: '+h);});
     // Read only allowlisted columns; never read VIN or private notes into rows.
-    const count=Math.max(0,sheet.getLastRow()-1);
+    const ranges=allowed.map(h=>{
+      let n=headers.indexOf(h)+1,col='';while(n){n--;col=String.fromCharCode(65+n%26)+col;n=Math.floor(n/26);}
+      return "'"+CONFIG.sheet+"'!"+col+'2:'+col+'2001';
+    });
+    const columns=sheetRead_(ranges);
+    const count=Math.max(0,...columns.map(c=>(c.values||[]).length));
+    if(count>=2000)throw new Error('Inventory exceeds the configured row limit.');
     const values=Array.from({length:count},()=>[]);
-    allowed.forEach(h=>{
+    allowed.forEach((h,j)=>{
       const col=headers.indexOf(h);
-      if(count)sheet.getRange(2,col+1,count,1).getDisplayValues().forEach((r,i)=>{values[i][col]=r[0];});
+      (columns[j].values||[]).forEach((r,i)=>{values[i][col]=r[0]||'';});
     });
     const rows=values.filter(r=>String(r[headers.indexOf('Estado')]).trim().toLowerCase()==='en stock').map(r=>{
       const out={}; allowed.forEach(h=>out[h]=r[headers.indexOf(h)]);out.photos=[];return out;
@@ -59,6 +62,12 @@ function syncInventory() {
     const result=post_('/api/inventory-sync',{vehicles:rows},secret);
     console.log('Synced '+result.count+' parts vehicles.');
   } finally {lock.releaseLock();}
+}
+function sheetRead_(ranges){
+  const url='https://sheets.googleapis.com/v4/spreadsheets/'+CONFIG.spreadsheetId+'/values:batchGet?valueRenderOption=FORMATTED_VALUE&'+ranges.map(r=>'ranges='+encodeURIComponent(r)).join('&');
+  const response=UrlFetchApp.fetch(url,{headers:{Authorization:'Bearer '+ScriptApp.getOAuthToken()},muteHttpExceptions:true});
+  if(response.getResponseCode()!==200)throw new Error('Sheet read failed: '+response.getResponseCode());
+  return JSON.parse(response.getContentText()).valueRanges;
 }
 function post_(path,data,secret){
   const response=UrlFetchApp.fetch(CONFIG.site+path,{method:'post',contentType:'application/json',headers:{Authorization:'Bearer '+secret},payload:JSON.stringify(data),muteHttpExceptions:true});
