@@ -6,10 +6,11 @@ import { track } from '../analytics'
 
 type Vehicle = typeof initial.vehicles[number] & {photos?:number[]}
 type InventoryData={updatedAt:string,vehicles:Vehicle[]}
-function VehiclePhotos({vehicle,es}:{vehicle:Vehicle,es:boolean}) {
+function VehiclePhotos({vehicle,es,live}:{vehicle:Vehicle,es:boolean,live:boolean}) {
   const [index,setIndex]=useState(0),[failed,setFailed]=useState(false)
   const localPhotos=(publishedPhotos as Record<string,string[]>)[vehicle.id]||[]
-  const photos=vehicle.photos?.length?vehicle.photos.map(position=>`/api/inventory-photo/${vehicle.id}/${position}`):localPhotos
+  const photos=vehicle.photos?.length?vehicle.photos.map(position=>`/api/inventory-photo/${vehicle.id}/${position}`):live?[]:localPhotos
+  useEffect(()=>{setIndex(0);setFailed(false)},[vehicle.id,live,vehicle.photos?.join(',')])
   if(!photos.length||failed)return <div className="inventory__photo"><span aria-hidden="true">↗</span><p>{es?'Solicita fotos de la parte':'Ask for photos of the part'}</p><small>STOCK #{vehicle.id}</small></div>
   return <div className="inventory__gallery"><img loading="lazy" width="400" height="250" src={photos[index]||photos[0]} alt={`${vehicle.year} ${vehicle.make} ${vehicle.model} — ${es?'carro para partes':'parts vehicle'} #${vehicle.id}`} onError={()=>setFailed(true)} /><span>STOCK #{vehicle.id}</span>{photos.length>1&&<button aria-label={es?'Ver siguiente foto':'View next photo'} onClick={()=>setIndex(n=>(n+1)%photos.length)}>{index+1}/{photos.length} →</button>}</div>
 }
@@ -35,7 +36,7 @@ export default function Inventory({lang}:{lang:Lang}) {
     </div>
     <p className="inventory__count" role="status">{vehicles.length} {es?'vehículos para consultar':'vehicles to inquire about'} · {es?'Actualizado':'Updated'} {new Date(data.updatedAt).toLocaleDateString(es?'es-US':'en-US',{timeZone:'America/Chicago'})}{!live && (es?' · Confirma la disponibilidad actual':' · Confirm current availability')}</p>
     <div className="inventory__grid">{vehicles.slice(0,limit).map(v=><article className="inventory__card" key={v.id}>
-      <VehiclePhotos vehicle={v} es={es} />
+      <VehiclePhotos vehicle={v} es={es} live={live} />
       <div className="inventory__body"><p className="inventory__year">{v.year} · {es?'SOLO PARTES':'PARTS ONLY'}</p><h3>{v.make} {v.model}</h3><p>{v.trim}</p><dl><div><dt>{es?'Motor':'Engine'}</dt><dd>{v.engine||'—'}</dd></div><div><dt>{es?'Transmisión':'Transmission'}</dt><dd>{v.transmission||'—'}</dd></div><div><dt>{es?'Tracción':'Drivetrain'}</dt><dd>{v.drivetrain||'—'}</dd></div></dl><a className="btn-yellow" data-tracked="true" onClick={()=>track('inventory_inquiry','inventory',v.id)} href={inquire(v)} target="_blank" rel="noopener noreferrer">{es?'Consultar partes →':'Ask about parts →'}</a></div>
     </article>)}</div>
     {vehicles.length===0&&<div className="inventory__empty"><h3>{es?'No hay coincidencias con esos filtros':'No vehicles match these filters'}</h3><p>{es?'Podemos ayudarte a consultar otras partes.':'We can help you check for other parts.'}</p><button className="btn-yellow" onClick={()=>{setMake('');setYear('');setQuery('')}}>{es?'Limpiar filtros':'Clear filters'}</button><a href="#quote">{es?'Consultar una parte':'Ask about a part'}</a></div>}
