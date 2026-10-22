@@ -50,7 +50,7 @@ function syncInventory() {
         const cacheKey='photo-'+row.StockID+'-'+position;
         const signature=file.getId()+':'+file.getLastUpdated().getTime();
         if(PropertiesService.getScriptProperties().getProperty(cacheKey)===signature){row.photos.push(position);continue;}
-        const thumbnail=file.getThumbnail();
+        const thumbnail=photoThumbnail_(file);
         if(!thumbnail)throw new Error('Photo thumbnail is not ready for stock '+row.StockID);
         const bytes=thumbnail.getBytes();
         if(bytes.length>300000)throw new Error('Photo thumbnail is too large for stock '+row.StockID);
@@ -68,6 +68,14 @@ function sheetRead_(ranges){
   const response=UrlFetchApp.fetch(url,{headers:{Authorization:'Bearer '+ScriptApp.getOAuthToken()},muteHttpExceptions:true});
   if(response.getResponseCode()!==200)throw new Error('Sheet read failed: '+response.getResponseCode());
   return JSON.parse(response.getContentText()).valueRanges;
+}
+function photoThumbnail_(file){
+  const token=ScriptApp.getOAuthToken();
+  const meta=UrlFetchApp.fetch('https://www.googleapis.com/drive/v3/files/'+encodeURIComponent(file.getId())+'?fields=thumbnailLink',{headers:{Authorization:'Bearer '+token}});
+  const link=JSON.parse(meta.getContentText()).thumbnailLink;
+  if(!link||!/^https:\/\/[a-z0-9.-]+\.googleusercontent\.com\//i.test(link))throw new Error('Google thumbnail unavailable.');
+  // Keep Google's small preview rather than the potentially full-size DriveApp blob.
+  return UrlFetchApp.fetch(link,{headers:{Authorization:'Bearer '+token},followRedirects:false}).getBlob();
 }
 function post_(path,data,secret){
   const response=UrlFetchApp.fetch(CONFIG.site+path,{method:'post',contentType:'application/json',headers:{Authorization:'Bearer '+secret},payload:JSON.stringify(data),muteHttpExceptions:true});
